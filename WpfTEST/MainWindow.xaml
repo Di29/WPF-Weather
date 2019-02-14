@@ -35,7 +35,10 @@
         </Grid.RowDefinitions>
 
 
-        <materialDesign:Card x:Name="card1" Width="200" Height="300" Grid.Column="0" Grid.Row="1" Opacity="0.7">
+        <materialDesign:Card x:Name="card1" Width="200" Height="300" Grid.Column="0" Grid.Row="1">
+            <materialDesign:Card.Background>
+                <SolidColorBrush Color="White" Opacity="0.55"/>
+            </materialDesign:Card.Background>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="110" />
@@ -77,7 +80,10 @@
             </Grid>
         </materialDesign:Card>
 
-        <materialDesign:Card x:Name="card2" Width="200" Height="300" Grid.Column="1" Grid.Row="1" Opacity="0.7">
+        <materialDesign:Card x:Name="card2" Width="200" Height="300" Grid.Column="1" Grid.Row="1">
+            <materialDesign:Card.Background>
+                <SolidColorBrush Color="White" Opacity="0.55"/>
+            </materialDesign:Card.Background>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="110" />
@@ -121,7 +127,10 @@
             </Grid>
         </materialDesign:Card>
 
-        <materialDesign:Card x:Name="card3" Width="200" Height="300" Grid.Column="2" Grid.Row="1" Opacity="0.7">
+        <materialDesign:Card x:Name="card3" Width="200" Height="300" Grid.Column="2" Grid.Row="1">
+            <materialDesign:Card.Background>
+                <SolidColorBrush Color="White" Opacity="0.55"/>
+            </materialDesign:Card.Background>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="110" />
@@ -165,7 +174,10 @@
             </Grid>
         </materialDesign:Card>
 
-        <materialDesign:Card x:Name="card4" Width="200" Height="300" Grid.Column="3" Grid.Row="1" Opacity="0.7">
+        <materialDesign:Card x:Name="card4" Width="200" Height="300" Grid.Column="3" Grid.Row="1">
+            <materialDesign:Card.Background>
+                <SolidColorBrush Color="White" Opacity="0.55"/>
+            </materialDesign:Card.Background>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="110" />
@@ -209,7 +221,10 @@
             </Grid>
         </materialDesign:Card>
 
-        <materialDesign:Card x:Name="card5" Width="200" Height="300" Grid.Column="4" Grid.Row="1" Opacity="0.7">
+        <materialDesign:Card x:Name="card5" Width="200" Height="300" Grid.Column="4" Grid.Row="1">
+            <materialDesign:Card.Background>
+                <SolidColorBrush Color="White" Opacity="0.55"/>
+            </materialDesign:Card.Background>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="110" />
@@ -253,7 +268,10 @@
             </Grid>
         </materialDesign:Card>
 
-        <materialDesign:Card x:Name="card6" Width="200" Height="300" Grid.Column="5" Grid.Row="1" Opacity="0.7">
+        <materialDesign:Card x:Name="card6" Width="200" Height="300" Grid.Column="5" Grid.Row="1">
+            <materialDesign:Card.Background>
+                <SolidColorBrush Color="White" Opacity="0.55"/>
+            </materialDesign:Card.Background>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="110" />
@@ -297,7 +315,10 @@
             </Grid>
         </materialDesign:Card>
 
-        <materialDesign:Card x:Name="card7" Width="200" Height="300" Grid.Column="6" Grid.Row="1" Opacity="0.7">
+        <materialDesign:Card x:Name="card7" Width="200" Height="300" Grid.Column="6" Grid.Row="1">
+            <materialDesign:Card.Background>
+                <SolidColorBrush Color="White" Opacity="0.555"/>
+            </materialDesign:Card.Background>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="110" />
@@ -341,7 +362,7 @@
             </Grid>
         </materialDesign:Card>
 
-        <materialDesign:Card Grid.ColumnSpan="7" Width="650" Height="200" Opacity="0.588">
+        <materialDesign:Card Grid.ColumnSpan="7" Width="650" Height="250" Opacity="0.588">
             <Grid>
                 <Grid.RowDefinitions>
                     <!--<RowDefinition Height="140" />-->
@@ -367,8 +388,8 @@
                     <TextBlock Name="press" HorizontalAlignment="Center" Height="15" Text="" Margin="0 8 0 0"></TextBlock>
 
                 </StackPanel>
-                <TextBlock x:Name="city"  HorizontalAlignment="Center"  Margin="0,248,0,-78" FontWeight="Bold" FontSize="18"/>
-                <TextBlock x:Name="time"  HorizontalAlignment="Center"  Margin="0,268,0,-78"  FontSize="14"/>
+                <TextBlock x:Name="city"  HorizontalAlignment="Center"  Margin="0,208,0,-78" FontWeight="Bold" FontSize="18"/>
+                <TextBlock x:Name="time"  HorizontalAlignment="Center"  Margin="0,228,0,-78"  FontSize="14"/>
 
             </Grid>
         </materialDesign:Card>
