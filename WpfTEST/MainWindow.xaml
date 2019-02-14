@@ -14,7 +14,7 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         
-        Title="Weather"  WindowState="Maximized" d:DesignWidth="1920" Height="1000" KeyUp="startSearch" Icon="Resources/weather.png">
+        Title="Weather"  WindowState="Maximized" d:DesignWidth="1920" Height="1000" KeyUp="StartSearch" Icon="Resources/weather.png">
     <Window.Background>
         <ImageBrush ImageSource="Resources/clouds.jpg"/>
     </Window.Background>
@@ -376,7 +376,7 @@
                     <!--<TextBox x:Name="searchBox" HorizontalAlignment="Left" Width="530" Margin="29,0,0,0" TextChanged="TextBox_TextChanged" />-->
                     <TextBox x:Name="searchBox"
                         materialDesign:HintAssist.Hint="Type city"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="SearchBox_TextChanged" Margin="42,0,41.6,0" />
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="SearchBoxTextChanged" Margin="42,0,41.6,0" />
 
 
                     <Border Name="bord" Width="550" Height="150" BorderBrush="Black" BorderThickness="1" >

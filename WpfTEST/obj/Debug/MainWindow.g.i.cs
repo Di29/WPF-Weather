@@ -628,7 +628,7 @@ namespace WpfTEST {
             case 1:
             
             #line 17 "..\..\MainWindow.xaml"
-            ((WpfTEST.MainWindow)(target)).KeyUp += new System.Windows.Input.KeyEventHandler(this.startSearch);
+            ((WpfTEST.MainWindow)(target)).KeyUp += new System.Windows.Input.KeyEventHandler(this.StartSearch);
             
             #line default
             #line hidden
@@ -823,7 +823,7 @@ namespace WpfTEST {
             this.searchBox = ((System.Windows.Controls.TextBox)(target));
             
             #line 379 "..\..\MainWindow.xaml"
-            this.searchBox.TextChanged += new System.Windows.Controls.TextChangedEventHandler(this.SearchBox_TextChanged);
+            this.searchBox.TextChanged += new System.Windows.Controls.TextChangedEventHandler(this.SearchBoxTextChanged);
             
             #line default
             #line hidden

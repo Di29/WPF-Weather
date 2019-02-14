@@ -66,7 +66,7 @@ namespace WpfTEST
             resultStack.Children.Add(block);
         }
 
-        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void SearchBoxTextChanged(object sender, TextChangedEventArgs e)
         {
             scroll.Visibility = Visibility.Visible;
             bord.Visibility = Visibility.Visible;
@@ -110,7 +110,7 @@ namespace WpfTEST
             }
         }
 
-        private void startSearch(object sender, KeyEventArgs e)
+        private void StartSearch(object sender, KeyEventArgs e)
         {
             if(e.Key == Key.Enter)
             {
