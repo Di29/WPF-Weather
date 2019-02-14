@@ -131,25 +131,33 @@ namespace WpfTEST
                 card6.Visibility = Visibility.Visible;
                 card7.Visibility = Visibility.Visible;
 
-
+                Search();
             }
         }
 
-        private void Window()
+        private void Search()
         {
 
             var input = searchBox.Text;
 
             string data;
+            
             WebClient client = new WebClient();
 
-            string apiCall = "http://api.apixu.com/v1/forecast.json?key=60b564a152774ee39c1135357190402   &q=" + input + "&days=7";
+            string forecast = "http://api.apixu.com/v1/forecast.json?key=60b564a152774ee39c1135357190402   &q=" + input + "&days=7";
+           
 
             try
             {
-                data = client.DownloadString(apiCall);
+
+                data = client.DownloadString(forecast);
+                
 
                 var weather = Weather.Welcome.FromJson(data);
+                city.Text = weather.Location.Name + " , " + weather.Location.Country;
+                time.Text = weather.Location.Localtime;
+
+                #region Day1
 
                 BitmapImage image = new BitmapImage();
                 image.BeginInit();
@@ -157,12 +165,15 @@ namespace WpfTEST
                 image.EndInit();
                 icon1.Source = image;
 
-                city.Text = weather.Location.Name + " " + weather.Location.Country;
-                day1.Text = weather.Forecast.Forecastday[0].Date.Date.ToString("dd.MM.yy");
-                condition.Text = weather.Forecast.Forecastday[0].Day.AvgtempC + " °C " + weather.Forecast.Forecastday[0].Day.Condition.Text;
-                avgTemp.Text = "Min temp: \t Max temp: \n" + weather.Forecast.Forecastday[0].Day.MintempC + " °C \t\t" + weather.Forecast.Forecastday[0].Day.MaxtempC + " °C ";
-                humidity.Text = "Humidity: " + weather.Forecast.Forecastday[0].Day.Avghumidity + " %";
-                windSpeed.Text = "Wind speed: " + weather.Forecast.Forecastday[0].Day.MaxwindKph + " k/h";
+                condition.Text = weather.Current.Condition.Text;
+                avgTemp.Text = weather.Current.TempC + " °C ";
+                humidity.Text = weather.Current.Humidity + " %";
+                windSpeed.Text = weather.Current.WindKph+ " km/h";
+                feels.Text = weather.Current.FeelslikeC + " °C ";
+
+                #endregion
+
+                #region Day 2
 
                 BitmapImage image2 = new BitmapImage();
                 image2.BeginInit();
@@ -171,10 +182,16 @@ namespace WpfTEST
                 icon2.Source = image2;
 
                 day2.Text = weather.Forecast.Forecastday[1].Date.Date.ToString("dd.MM.yy");
-                condition2.Text = weather.Forecast.Forecastday[1].Day.AvgtempC + " °C " + weather.Forecast.Forecastday[1].Day.Condition.Text;
-                avgTemp2.Text = "Min temp: \t Max temp: \n" + weather.Forecast.Forecastday[1].Day.MintempC + " °C \t\t" + weather.Forecast.Forecastday[1].Day.MaxtempC + " °C ";
-                humidity2.Text = "Humidity: " + weather.Forecast.Forecastday[1].Day.Avghumidity + " %";
-                windSpeed2.Text = "Wind speed: " + weather.Forecast.Forecastday[1].Day.MaxwindKph + " k/h";
+                condition2.Text = weather.Forecast.Forecastday[1].Day.Condition.Text;
+                avgTemp2.Text = weather.Forecast.Forecastday[1].Day.AvgtempC + " °C ";
+                humidity2.Text = weather.Forecast.Forecastday[1].Day.Avghumidity + " %";
+                windSpeed2.Text = weather.Forecast.Forecastday[1].Day.MaxwindKph + " km/h";
+                minTemp2.Text = weather.Forecast.Forecastday[1].Day.MintempC + " °C ";
+                maxTemp2.Text = weather.Forecast.Forecastday[1].Day.MaxtempC + " °C ";
+
+                #endregion
+
+                #region Day 3
 
                 BitmapImage image3 = new BitmapImage();
                 image3.BeginInit();
@@ -183,10 +200,16 @@ namespace WpfTEST
                 icon3.Source = image3;
 
                 day3.Text = weather.Forecast.Forecastday[2].Date.Date.ToString("dd.MM.yy");
-                condition3.Text = weather.Forecast.Forecastday[2].Day.AvgtempC + " °C " + weather.Forecast.Forecastday[2].Day.Condition.Text;
-                avgTemp3.Text = "Min temp: \t Max temp: \n" + weather.Forecast.Forecastday[2].Day.MintempC + " °C \t\t" + weather.Forecast.Forecastday[2].Day.MaxtempC + " °C ";
-                humidity3.Text = "Humidity: " + weather.Forecast.Forecastday[2].Day.Avghumidity + " %";
-                windSpeed3.Text = "Wind speed: " + weather.Forecast.Forecastday[2].Day.MaxwindKph + " k/h";
+                condition3.Text = weather.Forecast.Forecastday[2].Day.Condition.Text;
+                avgTemp3.Text = weather.Forecast.Forecastday[2].Day.AvgtempC + " °C ";
+                humidity3.Text = weather.Forecast.Forecastday[2].Day.Avghumidity + " %";
+                windSpeed3.Text = weather.Forecast.Forecastday[2].Day.MaxwindKph + " km/h";
+                minTemp3.Text = weather.Forecast.Forecastday[2].Day.MintempC + " °C ";
+                maxTemp3.Text = weather.Forecast.Forecastday[2].Day.MaxtempC + " °C ";
+
+                #endregion
+
+                #region Day 4
 
                 BitmapImage image4 = new BitmapImage();
                 image4.BeginInit();
@@ -195,10 +218,16 @@ namespace WpfTEST
                 icon4.Source = image4;
 
                 day4.Text = weather.Forecast.Forecastday[3].Date.Date.ToString("dd.MM.yy");
-                condition4.Text = weather.Forecast.Forecastday[3].Day.AvgtempC + " °C " + weather.Forecast.Forecastday[3].Day.Condition.Text;
-                avgTemp4.Text = "Min temp: \t Max temp: \n" + weather.Forecast.Forecastday[3].Day.MintempC + " °C \t\t" + weather.Forecast.Forecastday[3].Day.MaxtempC + " °C ";
-                humidity4.Text = "Humidity: " + weather.Forecast.Forecastday[3].Day.Avghumidity + " %";
-                windSpeed4.Text = "Wind speed: " + weather.Forecast.Forecastday[3].Day.MaxwindKph + " k/h";
+                condition4.Text = weather.Forecast.Forecastday[3].Day.Condition.Text;
+                avgTemp4.Text = weather.Forecast.Forecastday[3].Day.AvgtempC + " °C ";
+                humidity4.Text = weather.Forecast.Forecastday[3].Day.Avghumidity + " %";
+                windSpeed4.Text = weather.Forecast.Forecastday[3].Day.MaxwindKph + " km/h";
+                minTemp4.Text = weather.Forecast.Forecastday[3].Day.MintempC + " °C ";
+                maxTemp4.Text = weather.Forecast.Forecastday[3].Day.MaxtempC + " °C ";
+
+                #endregion
+
+                #region Day 5
 
                 BitmapImage image5 = new BitmapImage();
                 image5.BeginInit();
@@ -207,10 +236,50 @@ namespace WpfTEST
                 icon5.Source = image5;
 
                 day5.Text = weather.Forecast.Forecastday[4].Date.Date.ToString("dd.MM.yy");
-                condition5.Text = weather.Forecast.Forecastday[4].Day.AvgtempC + " °C " + weather.Forecast.Forecastday[4].Day.Condition.Text;
-                avgTemp5.Text = "Min temp: \t Max temp: \n" + weather.Forecast.Forecastday[4].Day.MintempC + " °C \t\t" + weather.Forecast.Forecastday[4].Day.MaxtempC + " °C ";
-                humidity5.Text = "Humidity: " + weather.Forecast.Forecastday[4].Day.Avghumidity + " %";
-                windSpeed5.Text = "Wind speed: " + weather.Forecast.Forecastday[4].Day.MaxwindKph + " k/h";
+                condition5.Text = weather.Forecast.Forecastday[4].Day.Condition.Text;
+                avgTemp5.Text = weather.Forecast.Forecastday[4].Day.AvgtempC + " °C ";
+                humidity5.Text = weather.Forecast.Forecastday[4].Day.Avghumidity + " %";
+                windSpeed5.Text = weather.Forecast.Forecastday[4].Day.MaxwindKph + " km/h";
+                minTemp5.Text = weather.Forecast.Forecastday[4].Day.MintempC + " °C ";
+                maxTemp5.Text = weather.Forecast.Forecastday[4].Day.MaxtempC + " °C ";
+
+                #endregion
+
+                #region Day 6
+
+                BitmapImage image6 = new BitmapImage();
+                image6.BeginInit();
+                image6.UriSource = new Uri("http:" + weather.Forecast.Forecastday[5].Day.Condition.Icon);
+                image6.EndInit();
+                icon6.Source = image5;
+
+                day6.Text = weather.Forecast.Forecastday[5].Date.Date.ToString("dd.MM.yy");
+                condition6.Text = weather.Forecast.Forecastday[5].Day.Condition.Text;
+                avgTemp6.Text = weather.Forecast.Forecastday[5].Day.AvgtempC + " °C ";
+                humidity6.Text = weather.Forecast.Forecastday[5].Day.Avghumidity + " %";
+                windSpeed6.Text = weather.Forecast.Forecastday[5].Day.MaxwindKph + " km/h";
+                minTemp6.Text = weather.Forecast.Forecastday[5].Day.MintempC + " °C ";
+                maxTemp6.Text = weather.Forecast.Forecastday[5].Day.MaxtempC + " °C ";
+
+                #endregion
+
+                #region Day 7
+
+                BitmapImage image7 = new BitmapImage();
+                image7.BeginInit();
+                image7.UriSource = new Uri("http:" + weather.Forecast.Forecastday[6].Day.Condition.Icon);
+                image7.EndInit();
+                icon7.Source = image5;
+
+                day7.Text = weather.Forecast.Forecastday[6].Date.Date.ToString("dd.MM.yy");
+                condition7.Text = weather.Forecast.Forecastday[6].Day.Condition.Text;
+                avgTemp7.Text = weather.Forecast.Forecastday[6].Day.AvgtempC + " °C ";
+                humidity7.Text = weather.Forecast.Forecastday[6].Day.Avghumidity + " %";
+                windSpeed7.Text = weather.Forecast.Forecastday[6].Day.MaxwindKph + " km/h";
+                minTemp7.Text = weather.Forecast.Forecastday[6].Day.MintempC + " °C ";
+                maxTemp7.Text = weather.Forecast.Forecastday[6].Day.MaxtempC + " °C ";
+
+                #endregion
             }
             catch
             {
